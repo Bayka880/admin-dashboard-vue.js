@@ -1,3 +1,4 @@
+require("dotenv").config()
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -39,9 +40,11 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss','@nuxtjs/axios','@nuxtjs/dotenv'
   ],
-
+  axios:{
+    baseURL:process.env.API_URL
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     postcss: {
