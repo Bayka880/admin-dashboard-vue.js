@@ -34,10 +34,7 @@
 import axios from "axios";
 
 
-async function handerler() {
-  console.log("hii");
-}
-handerler();
+
 export default {
   name: "LoginPage",
   data() {

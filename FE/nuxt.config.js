@@ -1,4 +1,3 @@
-import { component } from "vue/types/umd";
 
 require("dotenv").config();
 export default {
@@ -62,4 +61,7 @@ export default {
       ],
     },
   },
+  router:{
+    
+  }
 };
