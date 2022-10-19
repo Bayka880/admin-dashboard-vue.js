@@ -13,9 +13,13 @@ const loginUser = async (req, res) => {
 
     if (findExistingUser[0].password == password) {
       res.json({
-        message: "successfull",
+        message: "success",
         data: findExistingUser,
       });
+    }else{
+      res.status(404).json({
+        message:'Email or password wrong'
+      })
     }
   } catch (err) {
     res.json({
