@@ -23,7 +23,12 @@ const loginUser = async (req, res) => {
     });
   }
 };
+const getUsers = async (req)=>{
+  const users=await User.find({})
+  return users
+}
 module.exports = {
   createUser,
   loginUser,
+  getUsers
 };

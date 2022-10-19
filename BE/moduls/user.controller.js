@@ -1,6 +1,6 @@
 const userService = require("./user.service");
 const createUser = async (req, res) => {
-console.log(req.body)
+  console.log(req.body);
   try {
     const user = await userService.createUser(req);
     res.json({
@@ -13,9 +13,22 @@ console.log(req.body)
   }
 };
 const loginUser = async (req, res) => {
-  const userLogin = await userService.loginUser(req,res);
+  const userLogin = await userService.loginUser(req, res);
+};
+const getAllUser = async (req, res) => {
+  try {
+    const users = await userService.getUsers(req);
+    res.json({
+      data: users,
+    });
+  } catch (err) {
+    res.json({
+      message: err,
+    });
+  }
 };
 module.exports = {
   createUser,
   loginUser,
+  getAllUser
 };

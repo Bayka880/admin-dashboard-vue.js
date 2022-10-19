@@ -14,7 +14,7 @@
       ipsum ducimus modi animi quibusdam labore suscipit cupiditate provident
       asperiores, dolore alias natus officia enim aperiam nisi. Rerum, dolore!
     </div>
-  
+    
     <nuxt-link to="/login" class="via-orange-700">Login</nuxt-link>
     <nuxt-link to="/register" class="via-orange-700">Register</nuxt-link>
   </div>
