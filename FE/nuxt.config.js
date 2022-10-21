@@ -61,7 +61,7 @@ export default {
       ],
     },
   },
-  router:{
-    
-  }
+  serverMiddleware:[
+    "../middleware/redirect.js"
+  ]
 };

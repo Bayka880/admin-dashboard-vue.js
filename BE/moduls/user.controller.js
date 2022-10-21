@@ -4,6 +4,7 @@ const createUser = async (req, res) => {
   try {
     const user = await userService.createUser(req);
     res.json({
+      message:"successfull",
       data: user,
     });
   } catch (error) {

@@ -7,7 +7,9 @@ import {
   Table,
   Tag,
   Divider,
-  Breadcrumb
+  Breadcrumb,
+  Popconfirm,
+  Input,
 } from "ant-design-vue";
 Vue.use(Button);
 Vue.use(Layout);
@@ -17,3 +19,5 @@ Vue.use(Table);
 Vue.use(Tag);
 Vue.use(Divider);
 Vue.use(Breadcrumb);
+Vue.use(Popconfirm);
+Vue.use(Input);
