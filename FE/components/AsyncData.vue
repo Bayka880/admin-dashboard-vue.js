@@ -2,7 +2,7 @@
   <div>
     <a-table :columns="columns" :data-source="users.data">
       <a slot="name" slot-scope="text">{{ text }}</a>
-      <span slot="ID">ID</span>
+      <span slot="customTitle"><a-icon type="smile-o" /> Name</span>
       <span slot="tags" slot-scope="tags">
         <a-tag
           v-for="tag in tags"
@@ -14,6 +14,12 @@
           {{ tag.toUpperCase() }}
         </a-tag>
       </span>
+      <span slot="action" slot-scope="text, record" key="record">
+        <a>Invite 一 {{ record.name }}</a>
+        <a-divider type="vertical" />
+        <button @click="() => handlerDelete(record._id)">Delete</button>
+        <a-divider type="vertical" />
+      </span>
     </a-table>
   </div>
 </template>
@@ -21,7 +27,7 @@
 const columns = [
   {
     dataIndex: "_id",
-    key: "_id",
+    key: "id",
     slots: { title: "ID" },
     scopedSlots: { customRender: "id" },
   },
@@ -35,8 +41,15 @@ const columns = [
     dataIndex: "firstname",
     key: "firstName",
   },
+  {
+    title: "Action",
+    key: "action",
+    scopedSlots: {
+      customRender: "action",
+    },
+  },
 ];
-
+import axios from "axios";
 export default {
   data() {
     return {
@@ -44,5 +57,12 @@ export default {
     };
   },
   props: ["users"],
+  methods: {
+    handlerDelete(e) {
+      axios
+        .delete(`${process.env.BASE_URL}v1/user/delete/${e}`)
+        .then((res) => console.log(res));
+    },
+  },
 };
 </script>

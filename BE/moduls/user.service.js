@@ -16,10 +16,10 @@ const loginUser = async (req, res) => {
         message: "success",
         data: findExistingUser,
       });
-    }else{
+    } else {
       res.status(404).json({
-        message:'Email or password wrong'
-      })
+        message: "Email or password wrong",
+      });
     }
   } catch (err) {
     res.json({
@@ -27,12 +27,18 @@ const loginUser = async (req, res) => {
     });
   }
 };
-const getUsers = async (req)=>{
-  const users=await User.find({})
-  return users
-}
+const getUsers = async (req) => {
+  const users = await User.find({});
+  return users;
+};
+const deleteUser = async (req) => {
+  const { id } = req.params;
+  const result = await User.findByIdAndDelete(id);
+  return result;
+};
 module.exports = {
   createUser,
   loginUser,
-  getUsers
+  deleteUser,
+  getUsers,
 };

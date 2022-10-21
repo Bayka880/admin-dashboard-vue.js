@@ -4,7 +4,7 @@ const createUser = async (req, res) => {
   try {
     const user = await userService.createUser(req);
     res.json({
-      message:"successfull",
+      message: "successfull",
       data: user,
     });
   } catch (error) {
@@ -28,8 +28,22 @@ const getAllUser = async (req, res) => {
     });
   }
 };
+const deleteUser = async (req, res) => {
+  try {
+    const deletedUser = await userService.deleteUser(req);
+    res.status(200).json({
+      message: "success",
+      data: deletedUser,
+    });
+  } catch (err) {
+    res.status(404).json({
+      message: err,
+    });
+  }
+};
 module.exports = {
   createUser,
   loginUser,
-  getAllUser
+  getAllUser,
+  deleteUser,
 };
