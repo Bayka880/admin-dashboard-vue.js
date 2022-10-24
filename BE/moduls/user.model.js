@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ["open", "Closed", "Pending"],
+    enum: ["Open", "Closed", "Pending"],
   },
 });
 const User = mongoose.model("users", userSchema);
