@@ -61,7 +61,12 @@ export default {
     handlerDelete(e) {
       axios
         .delete(`${process.env.BASE_URL}v1/user/delete/${e}`)
-        .then((res) => console.log(res));
+        .then(async (res) => {
+          if (res.status === 200) {
+            console.log(res.data);
+            await this.$nuxt.refresh();
+          }
+        });
     },
   },
 };

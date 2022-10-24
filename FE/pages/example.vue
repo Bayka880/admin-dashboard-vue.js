@@ -8,6 +8,7 @@ import AsyncData from "../components/AsyncData.vue";
 export default {
   async asyncData({ $axios }) {
     const data = await $axios.$get(`${process.env.BASE_URL}v1/user`);
+    console.log(data);
     return { data };
   },
   components: { AsyncData },

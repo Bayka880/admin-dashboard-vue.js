@@ -4,14 +4,18 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  email:{
-    type:String,
-    required:true
+  email: {
+    type: String,
+    required: true,
   },
   password: {
     type: String,
-    required:true,
+    required: true,
+  },
+  status: {
+    type: String,
+    enum: ["open", "Closed", "Pending"],
   },
 });
-const User=mongoose.model("users" , userSchema)
-module.exports=User
+const User = mongoose.model("users", userSchema);
+module.exports = User;

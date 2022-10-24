@@ -28,8 +28,10 @@
           <a-menu-item key="8"> 2 year </a-menu-item>
         </a-sub-menu>
         <a-menu-item key="9">
-          <a-icon type="file" />
-          <span>File</span>
+          <nuxt-link to="/example">
+            <a-icon type="user" />
+            <span>Users</span>
+          </nuxt-link>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
